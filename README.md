@@ -16,9 +16,25 @@ On server side
 1. single client
 
 52% completed
-![](images/singl_client_52%.png)
+![](images/single_client_52%25.png)
 
 100% completed
 ![](images/single_client.png)
+
+2. two clients
+
+one 100% completed and other one 14 % completed
+![](images/two_clients.png)
+
+100% completed
+![](images/two_clients_completed.png)
+
+On client side
+
+43% completed
+![](images/clientside_client_43%25.png)
+
+100% completed
+![](images/clientside_client_completed.png)
 
 

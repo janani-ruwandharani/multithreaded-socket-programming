@@ -15,3 +15,10 @@ Results:
 On server side
 1. single client
 
+52% completed
+![](images/singl_client_52%.png)
+
+100% completed
+![](images/single_client.png)
+
+

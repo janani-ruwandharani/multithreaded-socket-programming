@@ -9,7 +9,7 @@ BUFFER_SIZE = 4096
 s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 
 # ip address of the server we need to connect to
-host = '192.168.1.8'
+host = '192.168.1.9'
 # server port we need to connect to
 port = 1234
 

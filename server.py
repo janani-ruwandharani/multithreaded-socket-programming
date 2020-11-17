@@ -3,10 +3,10 @@ import tqdm
 import os
 from _thread import *
 import threading
+import logging
 
 # create the threading object
 print_lock = threading.Lock()
-
 
 # define thread function
 def thread(client_socket):
@@ -29,16 +29,16 @@ def thread(client_socket):
                                  unit_divisor=1024)
 
             with open(filename, "wb") as f:
+                completed_amount = 0
                 for _ in progress:
                     # receives 1024 bytes from the socket each time the loop runs
                     read_binary = client_socket.recv(BUFFER_SIZE)
 
                     if not read_binary:
-                        print('File transferred successfully')
 
+                        print('File transferred successfully')
                         print_lock.release()
                         # lock released on exit
-
                         break
                         # nothing is received
                         # file transmitting is done
@@ -48,12 +48,18 @@ def thread(client_socket):
 
                     # update the progress bar
                     progress.update(len(read_binary))
+                    completed_amount += len(read_binary)
+                    completed_percentage = completed_amount*100/int(filesize)
+                    if completed_percentage ==100:
+                        print('Completion percentage: {}'.format(str(completed_percentage)))
+            break
 
         # close the client
         client_socket.close()
 
-    except:
+    except Exception as e:
         import traceback
+        logging.error(e)
         print(' ')
 
 
@@ -68,12 +74,14 @@ def Main():
         # assign the port
         server_port = 1234
 
+        local_ip = socket.getfqdn()
+
         # bind the socket
         server_socket.bind((server_host, server_port))
 
         # put the server on the listening mode
         server_socket.listen(5)
-        print(f'Server is listening at {server_port} and {server_host}')
+        print(f'Server is listening on {server_port} at {local_ip}')
 
         # forever loop until client wants to exit
         while True:
@@ -90,8 +98,8 @@ def Main():
         # close the server
         server_socket.close()
 
-    except :
-        print('')
+    except Exception as e:
+        logging.error(e)
 
 
 if __name__ == '__main__':

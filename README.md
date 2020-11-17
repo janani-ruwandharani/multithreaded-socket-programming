@@ -7,8 +7,10 @@ Based on https://www.geeksforgeeks.org/socket-programming-multi-threading-python
 
 Installation:
 1. Install the requirements.txt file with 'pip install -r requirements.txt'
-2. Turn off the firewall on both machines and run the 'server.py' first
-3. Then run 'client.py'
+2. Turn off the firewall on both machines and run the `python server.py` first. 
+Once the server is up, its host name will be displayed.
+3. Then run `python client.py <server host name> <file location`
+eg: `python client.py Laptop-15-cc1xx ./files/fileX.mp3`
 4. Try for more than one client scripts to experience mutithreading
 
 Results:

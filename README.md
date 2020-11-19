@@ -2,7 +2,10 @@
 Transfer files between two machines while displaying the transferred percentage in a progress bar
 
 Description:
+
 This project can transfer files between two machines when the firewall is disabled. The transferring percentage is displayed through a progress bar. However, the multithreading feature needs to be improved more.
+(File transfer within the same machine is also possible.)
+
 Based on https://www.geeksforgeeks.org/socket-programming-multi-threading-python/ and https://www.thepythoncode.com/article/send-receive-files-using-sockets-python
 
 Installation:
